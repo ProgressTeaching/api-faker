@@ -2,6 +2,10 @@
 import faker from 'faker'
 import _ from 'lodash'
 
+const defaultNumberOfResults = 100
+const numberOfEbacSubjects = 4
+const numberOfNonEbacSubjects = 3
+
 const gender = ["male", "female", "other"]
 const basicSubjects = ["English", "English Lit", "Maths"]
 const ebacSubjects = [
@@ -13,11 +17,9 @@ const nonEbacSubjects = [
   "Socialogy", "RS", "BTEC", "Sports"
 ]
 
-const numberOfEbacSubjects = 4
-const numberOfNonEbacSubjects = 3
-
 export default (req, res) => {
-  let results = [...Array(10).keys()].map( student => {
+  let numberOfResults = req.query.count ? parseInt(req.query.count) : defaultNumberOfResults
+  let results = [...Array(numberOfResults).keys()].map( student => {
     let courseProgress = [];
 
     basicSubjects.forEach( subject => {
@@ -79,5 +81,9 @@ export default (req, res) => {
   })
 
 
-  res.status(200).json(results)
+  res.status(200).json({
+    success: true,
+    count: results.length,
+    data: results,
+  })
 }
