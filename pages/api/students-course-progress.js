@@ -1,3 +1,5 @@
+// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+
 export default (req, res) => {
   res.status(200).json({
     "items": [
@@ -4196,5 +4198,5 @@ export default (req, res) => {
         "currentPage": 1,
         "perPage": 10
     }
-})
+  })
 }
