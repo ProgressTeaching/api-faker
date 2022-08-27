@@ -2,9 +2,7 @@
 
 export default (req, res) => {
   res.status(200).json({
-    user: {
-
-    },
+    user: {},
     items: [
       { label: "Dashboard", href: "https://mca2.progressteaching-testing.com/index.php?r=main/dashboard/index", },
       { label: "Whole School", href: "https://mca2.progressteaching-testing.com/index.php?r=main/dashboard/index", items: [
